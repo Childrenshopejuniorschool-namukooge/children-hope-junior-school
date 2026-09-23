@@ -237,20 +237,20 @@ function generateAdmissionPDF() {
       }
     }
 
-    /// ===== Beautiful page border – extreme edges =====
+    /// ===== Beautiful page border – extreme edges (covers everything) =====
     const pageH = pdf.internal.pageSize.getHeight();
-    const margin = 4;                    // very close to the edge
+    const margin = 2.5;                  // almost at the very edge of the paper
     // Outer blue border
     pdf.setDrawColor(8, 59, 140);
-    pdf.setLineWidth(1.4);
+    pdf.setLineWidth(1.5);
     pdf.rect(margin, margin, pageWidth - margin * 2, pageH - margin * 2);
     // Inner thinner blue border
-    pdf.setLineWidth(0.45);
-    pdf.rect(margin + 2.2, margin + 2.2, pageWidth - (margin + 2.2) * 2, pageH - (margin + 2.2) * 2);
+    pdf.setLineWidth(0.5);
+    pdf.rect(margin + 2, margin + 2, pageWidth - (margin + 2) * 2, pageH - (margin + 2) * 2);
     // Gold accent corners
     pdf.setDrawColor(180, 120, 20);
-    pdf.setLineWidth(1.0);
-    const c = 8; // corner length
+    pdf.setLineWidth(1.1);
+    const c = 9; // corner length
     // top-left
     pdf.line(margin, margin + c, margin, margin);
     pdf.line(margin, margin, margin + c, margin);
