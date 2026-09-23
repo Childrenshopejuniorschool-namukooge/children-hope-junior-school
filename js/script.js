@@ -237,20 +237,20 @@ function generateAdmissionPDF() {
       }
     }
 
-    /// ===== Beautiful page border (double frame + gold accent) =====
+    /// ===== Beautiful page border – extreme edges =====
     const pageH = pdf.internal.pageSize.getHeight();
-    const margin = 8;
+    const margin = 4;                    // very close to the edge
     // Outer blue border
     pdf.setDrawColor(8, 59, 140);
-    pdf.setLineWidth(1.2);
+    pdf.setLineWidth(1.4);
     pdf.rect(margin, margin, pageWidth - margin * 2, pageH - margin * 2);
     // Inner thinner blue border
-    pdf.setLineWidth(0.4);
-    pdf.rect(margin + 2.5, margin + 2.5, pageWidth - (margin + 2.5) * 2, pageH - (margin + 2.5) * 2);
-    // Gold accent corners (short lines)
+    pdf.setLineWidth(0.45);
+    pdf.rect(margin + 2.2, margin + 2.2, pageWidth - (margin + 2.2) * 2, pageH - (margin + 2.2) * 2);
+    // Gold accent corners
     pdf.setDrawColor(180, 120, 20);
-    pdf.setLineWidth(0.9);
-    const c = 7; // corner length
+    pdf.setLineWidth(1.0);
+    const c = 8; // corner length
     // top-left
     pdf.line(margin, margin + c, margin, margin);
     pdf.line(margin, margin, margin + c, margin);
@@ -263,7 +263,7 @@ function generateAdmissionPDF() {
     // bottom-right
     pdf.line(pageWidth - margin - c, pageH - margin, pageWidth - margin, pageH - margin);
     pdf.line(pageWidth - margin, pageH - margin, pageWidth - margin, pageH - margin - c);
-    // Reset line width
+    // Reset
     pdf.setLineWidth(0.2);
 
     // Header line under logo area
