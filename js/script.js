@@ -434,15 +434,13 @@ function generateAdmissionPDF() {
       align: "center"
     });
 
-    // Thank-you message (must be on the page: A4 height is 297mm)
+    // Thank-you message – one single line, extended left & right
     pdf.setFont("helvetica", "italic");
-    pdf.setFontSize(8);
+    pdf.setFontSize(7.2);                 // slightly smaller so it fits on one line
     pdf.setTextColor(8, 59, 140);
     const thankMsg =
       "Thank you for choosing Children's Hope Junior School. We look forward to welcoming your child and walking with your family in faith, learning, and hope.";
-    const thankLines = pdf.splitTextToSize(thankMsg, pageWidth - 30);
-    pdf.text(thankLines, pageWidth / 2, 290, { align: "center" });
-
+    pdf.text(thankMsg, pageWidth / 2, 290, { align: "center" });
     // File name
     const first = (admissionData.childFirst || "").trim();
     const last = (admissionData.childLast || "").trim();
